@@ -11,7 +11,7 @@
 *.userprefs
 
 Champion file generator/
-riot-api-key.txt
+Resources/riot-api-key.txt
 
 # Build results
 [Dd]ebug/
