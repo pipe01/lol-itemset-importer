@@ -10,9 +10,9 @@ namespace LoL_Item_Set_Manager
 {
     public class ItemSetsFile
     {
-        public static string FilePath = @"C:\Riot Games\League of Legends\Config\ItemSets.json";
+        public static string FilePath = @"E:\Cosas\Riot Games\League of Legends\Config\ItemSets.json";
 
-        public static ItemSetsFile Default { get; private set; } = new ItemSetsFile();
+        public static ItemSetsFile Default { get; private set; }
 
         [JsonProperty("itemSets")]
         public List<ItemSet> Sets = new List<ItemSet>();
@@ -44,53 +44,54 @@ namespace LoL_Item_Set_Manager
             public class BlockItem
             {
                 [JsonProperty("count")]
-                public int Count { get; set; }
+                public int Count { get; set; } = 1;
 
                 [JsonProperty("id")]
                 public string ID { get; set; }
             }
 
             [JsonProperty("hideIfSummonerSpell")]
-            public int HideIfSummonerSpell { get; set; }
+            public string HideIfSummonerSpell { get; set; } = "";
 
             [JsonProperty("showIfSummonerSpell")]
-            public int ShowIfSummonerSpell { get; set; }
+            public string ShowIfSummonerSpell { get; set; } = "";
 
             [JsonProperty("type")]
-            public string Name { get; set; }
+            public string Name { get; set; } = "Untitled";
 
             [JsonProperty("items")]
-            public List<BlockItem> Items { get; set; }
+            public List<BlockItem> Items { get; set; } = new List<BlockItem>();
         }
 
         [JsonProperty("associatedChampions")]
-        public List<int> AssociatedChampions { get; set; }
+        public List<int> AssociatedChampions { get; set; } = new List<int>();
 
+        //Summoner's rift by default
         [JsonProperty("associatedMaps")]
-        public List<int> AssociatedMaps { get; set; }
+        public List<int> AssociatedMaps { get; set; } = new List<int>(new[] { 11 });
 
         [JsonProperty("blocks")]
-        public List<SetBlock> Blocks { get; set; }
+        public List<SetBlock> Blocks { get; set; } = new List<SetBlock>();
 
         [JsonProperty("map")]
-        public string Map { get; set; }
+        public string Map { get; set; } = "any";
 
         [JsonProperty("set")]
-        public string Mode { get; set; }
+        public string Mode { get; set; } = "any";
 
         [JsonProperty("sortRank")]
-        public int SortRank { get; set; }
+        public int SortRank { get; set; } = 0;
 
         [JsonProperty("startedFrom")]
-        public string StartedFrom { get; set; }
+        public string StartedFrom { get; set; } = "blank";
 
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = "Untitled";
 
         [JsonProperty("type")]
-        public string Type { get; set; }
-        
+        public string Type { get; set; } = "custom";
+
         [JsonProperty("uid")]
-        public Guid UID { get; set; }
+        public Guid UID { get; set; } = Guid.NewGuid();
     }
 }

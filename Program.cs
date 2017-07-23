@@ -19,6 +19,8 @@ namespace LoL_Item_Set_Manager
         [STAThread]
         static void Main()
         {
+            ChampionsCache.Load();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

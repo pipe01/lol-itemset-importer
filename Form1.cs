@@ -18,9 +18,15 @@ namespace LoL_Item_Set_Manager
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
-            new MobafireProvider().GetItemSet("http://www.mobafire.com/league-of-legends/build/a-right-click-to-diamond-the-top-lane-king-402199").RunSynchronously();
+            var itemset = await new MobafireProvider().GetItemSet("http://www.mobafire.com/league-of-legends/build/ashes-to-ashes-67331");
+
+            ItemSetsFile.Load();
+
+            ItemSetsFile.Default.Sets.Add(itemset);
+
+            ItemSetsFile.Save();
         }
     }
 }
